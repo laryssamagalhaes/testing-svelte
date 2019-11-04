@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.svelte",
+    "../src/components/Button.svelte",
+    "../src/components/Input.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import Input from './components/Input.svelte';\n  import Button from './components/Button.svelte';\n\n  let firstNameProps = {\n    placeholder: 'first name',\n    name: 'firstName',\n    label: 'First name:',\n    value: ''\n  }\n\n  let lasttNameProps = {\n    placeholder: 'last name',\n    name: 'lastName',\n    label: 'Last name:',\n    value: ''\n  }\n\n  let ageProps = {\n    placeholder: 'age',\n    name: 'age',\n    label: 'Age:',\n    value: ''\n  }\n\n  const buttonProps = {\n    content: \"Send data\",\n    onClick: () => {\n      alert(`\n        Name: ${firstNameProps.value}\n        Last name: ${lasttNameProps.value} \n        Age: ${ageProps.value}\n      `)\n    }\n  }\n\n  const getValueInput = (variableToUpate) => (value) => {\n   variableToUpate.value = value\n  }\n</script>\n\n<style>\n  .container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    height: 100vh;\n  }\n</style>\n\n<div class=\"container\">\n  <Input {...firstNameProps} onChange={getValueInput(firstNameProps)} />\n  <Input {...lasttNameProps} onChange={getValueInput(lasttNameProps)} />\n  <Input {...ageProps} onChange={getValueInput(ageProps)} />\n  <Button {...buttonProps} />\n</div>\n",
+    "<script>\n  export let content, onClick;\n</script>\n\n<style>\n  button {\n    padding: 12px 20px;  \n    border-radius: 4px;\n    cursor: pointer;\n    margin-top: 10px;\n    font-size: 15px;\n  }\n   button:hover {\n    background: #E0E0E0;\n  }\n</style>\n\n\n<button on:click={onClick}>{content}</button>",
+    "<script>\n  export let name, label, placeholder, value, onChange;\n</script>\n\n<style>\ninput {\n  border-radius: 4px;\n  padding: 10px;\n  width: 200px;\n}\n\nlabel {\n  margin-bottom: 5px;\n}\n\ninput, label {\n  font-size: 13px;\n}\n</style>\n\n<div>\n  <label>{label}</label>\n  <input \n    name={name} \n    placeholder={`Write your ${placeholder} here`} \n    bind:value={value} \n    on:change={() => onChange(value)\n  }/>\n</div>"
+  ],
+  "names": [],
+  "mappings": "AA0CE,UAAU,cAAC,CAAC,AACV,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,CACnB,cAAc,CAAE,MAAM,CACtB,MAAM,CAAE,KAAK,AACf,CAAC;AC3CD,MAAM,cAAC,CAAC,AACN,OAAO,CAAE,IAAI,CAAC,IAAI,CAClB,aAAa,CAAE,GAAG,CAClB,MAAM,CAAE,OAAO,CACf,UAAU,CAAE,IAAI,CAChB,SAAS,CAAE,IAAI,AACjB,CAAC,AACA,oBAAM,MAAM,AAAC,CAAC,AACb,UAAU,CAAE,OAAO,AACrB,CAAC;ACTH,KAAK,eAAC,CAAC,AACL,aAAa,CAAE,GAAG,CAClB,OAAO,CAAE,IAAI,CACb,KAAK,CAAE,KAAK,AACd,CAAC,AAED,KAAK,eAAC,CAAC,AACL,aAAa,CAAE,GAAG,AACpB,CAAC,AAED,oBAAK,CAAE,KAAK,eAAC,CAAC,AACZ,SAAS,CAAE,IAAI,AACjB,CAAC"
+}
